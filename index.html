@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurag's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #1abc9c;    /* Bright Teal */
+            --secondary-color: #2c3e50;  /* Dark Blue-Gray */
+            --text-color: #ecf0f1;       /* Light Gray */
+            --background-color: #2c3e50; /* Dark Blue-Gray */
+            --secondary-background-color:#dbf7ed;
+            --accent-color: #e74c3c;     /* Bright Red */
+            --font-size-base: 16px;      /* Base font size */
+            --font-size-large: 1.5rem;   /* Large font size */
+            --font-size-medium: 1.125rem;/* Medium font size */
+            --font-size-small: 0.875rem; /* Small font size */
+            --input-color:#2c3e50;  /* Dark Blue-Gray */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--font-size-base);
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+        }
+
+        .logo {
+            font-size: var(--font-size-large);
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        #menu-icon {
+            display: none;
+            font-size: var(--font-size-large);
+            cursor: pointer;
+        }
+
+        /* Home Section Styles */
+        .home {
+            margin-top: 5rem;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--background-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url(images/network-mesh-wire-digital-technology-background_1017-27428.avif) no-repeat center center/cover;
+            z-index: 0;
+            
+        }
+
+        .home-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .home-content h1 {
+            font-size: 2rem; /* 48px */
+            margin-bottom: 1.25rem; /* 20px */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-content p {
+            font-size: 1.5rem; /* 24px */
+            margin-bottom: 1.875rem; /* 30px */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .home-content span {
+            color: var(--accent-color);
+            font-size: 3rem;
+        }
+
+        .home-content img {
+            width: max(18rem, 40%);
+            height: auto;
+            border-radius: 50%;
+            margin-top: 1.25rem; /* 20px */
+        }
+
+        #profession {
+            font-size: 3rem;
+        }
+        .social-links{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+            font-size:2.5rem;
+            
+        }
+        .fa-brands{
+            color: var(--accent-color);
+        }
+
+        .cursor {
+            display: inline-block;
+            background-color: var(--accent-color);
+            width: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            50.01%, 100% {
+                opacity: 0;
+            }
+        }
+
+/* About Section Styles */
+        .about-me {
+    padding: 6.25rem 0;
+    background-color: var(--secondary-color);
+}
+
+.about-me h2 {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-content .intro {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-item h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.about-item ul {
+    padding-left: 1.5rem;
+}
+
+.about-item li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.about-item p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.cta {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.cta h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* Portfolio Section Styles */
+        .portfolio {
+            padding: 6.25rem 0; /* 100px */
+            background-color:var(--secondary-background-color);
+        }
+
+        .portfolio h2 {
+            font-size: 2.25rem; /* 36px */
+            text-align: center;
+            margin-bottom: 3.125rem; /* 50px */
+            color: var(--primary-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.875rem; /* 30px */
+        }
+
+        .project {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.25rem; /* 20px */
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem; /* 20px */
+            margin-bottom: 0.625rem; /* 10px */
+            color: var(--primary-color);
+        }
+
+        .project-info p {
+            font-size: var(--font-size-small);
+            color: var(--text-color);
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1.25rem 1.25rem; /* 0 20px 20px */
+        }
+
+        .project-links button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 0.625rem 1.25rem; /* 10px 20px */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-links button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Skills Section Styles */
+       /* Skills Section Styles */
+.skills {
+    padding: 6.25rem 0;
+    background-color: var(--secondary-color);
+}
+
+.skills h2 {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 3.125rem;
+    color: var(--primary-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skills-category {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skills-category h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.skills-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.skill-item img {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
+.skill-item span {
+    font-size: 0.875rem;
+    color: var(--text-color);
+}
+
+#certificate{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-download{
+    display: inline-block;
+            background-color:var(--primary-color);
+            color: #ffffff;
+            padding: 0.625rem 1.25rem; /* 10px 20px */
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 2rem;
+}
+.certificate-download:hover{
+    background-color:var(--accent-color);
+        
+}
+
+
+@media screen and (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+        /* Resume Section Styles */
+        .resume {
+            padding: 6.25rem 0; /* 100px */
+            background-color: var(--secondary-background-color);
+            text-align: center;
+        }
+
+        .resume-content h2 {
+            font-size: 2.25rem; /* 36px */
+            margin-bottom: 1.25rem; /* 20px */
+            color: var(--primary-color);
+        }
+
+        .resume-content a {
+            display: inline-block;
+            background-color:var(--primary-color);
+            color: #ffffff;
+            padding: 0.625rem 1.25rem; /* 10px 20px */
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+       .resume-content p{
+        color: var(--input-color);
+        margin-bottom: 1.25rem;
+       }
+        .resume-content a:hover {
+            background-color:var(--accent-color);
+        }
+
+        /* Contact Section Styles */
+        .contact {
+            padding: 6.25rem 0; /* 100px */
+            background-color: var(--secondary-color);
+        }
+
+        .contact h2 {
+            font-size: 2.25rem; /* 36px */
+            text-align: center;
+            margin-bottom: 3.125rem; /* 50px */
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem; /* 20px */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3125rem; /* 5px */
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.625rem; /* 10px */
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            color: var(--input-color);
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.625rem 1.25rem; /* 10px 20px */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 1.25rem 0; /* 20px */
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(44, 62, 80, 0.95);
+                padding: 1.25rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+
+            .home-content h1 {
+                font-size: 2.25rem; /* 36px */
+            }
+
+            .home-content p {
+                font-size: 1.125rem; /* 18px */
+            }
+
+            .about-me-text h2,
+            .portfolio h2,
+            .skills h2,
+            .resume-content h2,
+            .contact h2 {
+                font-size: 1.75rem; /* 28px */
+            }
+
+            .project-links {
+                flex-direction: column;
+                gap: 0.625rem; /* 10px */
+                padding: 1.25rem; /* 20px */
+            }
+
+            .project-links button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 20vh;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: var(--secondary-color);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-in-out;
+    position: relative; /* Make this relative */
+}
+
+.close-modal {
+    color: var(--accent-color); /* Always red */
+    position: absolute; /* Change to absolute */
+    top: -20px; /* Adjust as needed */
+    right: -20px; /* Adjust as needed */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">Anurag</a>
+            <i class="fa-solid fa-bars" id="menu-icon" style="color: var(--primary-color)"></i>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home">
+        <div class="container">
+            <div class="home-content">
+                <h1>Hello, I'm <span>Anurag</span></h1>
+                <p>I'm a <span id="profession">Web Developer</span><span class="cursor"></span></p>
+                <img src="images/web-developer-vector-design_833755-20326.avif" alt="Anurag">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/anurag-shrivastav-53166594/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/anurag-developer1" target="_blank"><i class="fa-brands fa-github"></i></a>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="about" class="about-me">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p class="intro">Passionate and innovative web developer with a knack for transforming complex problems into elegant, user-centric solutions. My journey in web development is fueled by an insatiable curiosity and a drive to stay at the cutting edge of technology.</p>
+                
+                <div class="about-grid">
+                    <div class="about-item">
+                        <h3>What I Bring to the Table:</h3>
+                        <ul>
+                            <li><strong>Full-Stack Expertise</strong>: Proficient in both front-end and back-end technologies, allowing me to create seamless, end-to-end web applications.</li>
+                            <li><strong>User-Focused Design</strong>: Committed to crafting intuitive interfaces that prioritize user experience and accessibility.</li>
+                            <li><strong>Rapid Learning & Adaptation</strong>: Quick to master new technologies and frameworks, ensuring I'm always equipped with the best tools for each project.</li>
+                            <li><strong>Problem-Solving Mindset</strong>: Thrive on tackling complex challenges and finding creative, efficient solutions.</li>
+                            <li><strong>Collaborative Spirit</strong>: Excel in team environments, valuing open communication and collective innovation.</li>
+                        </ul>
+                    </div>
+                    <div class="about-item">
+                        <h3>My Approach:</h3>
+                        <p>I believe in writing clean, maintainable code that stands the test of time. By leveraging modern web technologies and best practices, I develop scalable applications that not only meet current needs but are also primed for future growth.</p>
+                        
+                        <h3>Always Evolving:</h3>
+                        <p>In the fast-paced world of web development, stagnation is not an option. I'm constantly expanding my skill set through personal projects, online courses, and active participation in developer communities. This continuous learning ensures that I bring fresh, innovative ideas to every project.</p>
+                    </div>
+                </div>
+                
+                <div class="cta">
+                    <h3>Let's Create Something Amazing:</h3>
+                    <p>I'm excited about the possibility of bringing my passion, skills, and dedication to your team. Together, we can push the boundaries of what's possible on the web and create digital experiences that truly make a difference.</p>
+                    <p>Ready to turn your web development vision into reality? Let's connect and explore how we can make it happen!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>My Portfolio</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="images/webflix.png" alt="Project 1">
+                    <div class="project-info">
+                        <h3>WebFlix</h3>
+                        <p>A responsive full stack entertainment webapp built with React and Node.js.</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://webflix-mu.vercel.app/" target="_blank"><button >Live Link</button></a>
+                        <a href="https://github.com/anurag-developer1/WebFlix" target="_blank"><button >Source Code</button></a>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="images/smartquiz.png" alt="Project 2">
+                    <div class="project-info">
+                        <h3>SmartQuiz</h3>
+                        <p>A quiz application built with React with MCQ Single and multiple correct type playable.</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://cheerful-scone-41f771.netlify.app/home" target="_blank"><button >Live Link</button></a>
+                        <a href="https://github.com/anurag-developer1/Smart-Quiz-App" target="_blank"><button >Source Code</button></a>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="images/backend.png" alt="Project 3">
+                    <div class="project-info">
+                        <h3>Get YouTube Subscribers API</h3>
+                        <p>A backend server application to fetch subscriber info through API endpoints.Built with Node.js and Express </p>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://get-youtube-subscribers-guhx.onrender.com/" target="_blank"><button >Live Link</button></a>
+                        <a href="https://github.com/anurag-developer1/get_youtube_subscribers" target="_blank"><button >Source Code</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-items">
+                        <div class="skill-item">
+                            <img src="images/html.png" alt="HTML">
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/css.png" alt="CSS">
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/javascript.png" alt="JavaScript">
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/icons8-java-480.png" alt="java">
+                            <span>Java</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Frameworks</h3>
+                    <div class="skills-items">
+                        <div class="skill-item">
+                            <img src="images/react.png" alt="React">
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/node.png" alt="Node">
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/express.png" alt="Express">
+                            <span>Express</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Data Structures & Algorithms</h3>
+                    <div class="skills-items" id="certificate">
+                        <a class="certificate-download" href="documents/dsa.pdf" download="">Certificate</a>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3>Other Technologies</h3>
+                    <div class="skills-items">
+                        <div class="skill-item">
+                            <img src="images/tailwind.png" alt="Tailwind CSS">
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/icons8-git-480.png" alt="Git" >
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/figma.png" alt="figma" >
+                            <span>Figma</span>
+                        </div>
+                       
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="resume">
+        <div class="container">
+            <div class="resume-content">
+                <h2>My Resume</h2>
+                <p>Download my resume to learn more about my experience and qualifications.</p>
+                <a href="documents/Full stack web developer.pdf" download>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-form">
+                <form  id="send-email">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Send Email</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Anurag's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+         // Modal functionality
+         const modal = document.getElementById('emailModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModal = document.querySelector('.close-modal');
+
+        function showModal(message) {
+            modalMessage.textContent = message;
+            modal.style.display = "block";
+        }
+
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('send-email').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            fetch('https://nodejs-serverless-function-express-4gk8iuk8l.vercel.app/api/email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, message })
+            })
+            .then(response => response.text())
+            .then(data => {
+                showModal('Email sent successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showModal('Failed to send email. Please try again.');
+            });
+        });
+        // JavaScript for mobile menu toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Close menu when a link is clicked
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active navigation item on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // JavaScript for profession animation
+        const professions = ["Web Developer", "Full Stack Developer", "Freelancer", "Frontend Developer", "Backend Developer"];
+        let professionIndex = 0;
+        let charIndex = 0;
+        const professionElement = document.getElementById('profession');
+        const cursorElement = document.querySelector('.cursor');
+
+        function typeProfession() {
+            if (charIndex < professions[professionIndex].length) {
+                professionElement.textContent += professions[professionIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeProfession, 100);
+            } else {
+                setTimeout(deleteProfession, 2000);
+            }
+        }
+
+        function deleteProfession() {
+            if (charIndex > 0) {
+                professionElement.textContent = professions[professionIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(deleteProfession, 100);
+            } else {
+                professionIndex = (professionIndex + 1) % professions.length;
+                setTimeout(typeProfession, 500);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeProfession, 1000);
+        });
+    </script>
+</body>
+</html>
+
+
+

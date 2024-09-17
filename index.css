@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --bg-color:#15273F;
+    
+    --text-color: #FEFFFF;
+    
+}
+
+main{
+
+    width: 100%;
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    text-wrap: nowrap;
+}
+
+
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    gap: 16px;
+    
+}
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+
+    background-image: url(https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg?w=1480&t=st=1726158295~exp=1726158895~hmac=94be8afaadfa6dc96ffbd12ff41cd406d999c80d4ae9cd9db759e4aff761e5bb);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.about-me{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_23-2149018550.jpg?w=1480&t=st=1726159172~exp=1726159772~hmac=48b0adee62f036c5c4067a4a29e77c67b53f6a8135e151dd732ad88fd3cf95dc);
+}
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+   
+}
+.projects img{
+    width: 100%;
+    height: auto;
+}
